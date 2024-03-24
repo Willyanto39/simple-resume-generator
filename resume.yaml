@@ -1,0 +1,47 @@
+contact:
+  name: name
+  email: email@example.com
+  phone: 1234567890
+experiences:
+  - company: Company 1
+    role: Role 1
+    start:
+      month: January
+      year: 2023
+    end:
+      month: March
+      year: 2024
+    achievements:
+      - achievement 1
+      - achievement 2
+  - company: Company 2
+    role: Role 2
+    start:
+      month: May
+      year: 2023
+    end:
+      month: October
+      year: 2023
+    achievement:
+      - achievement 1
+      - achievement 2
+educations:
+  - name: Some University
+    start:
+      month: September
+      year: 2019
+    end:
+      month: April
+      year: 2023
+skills:
+  - Java
+  - JavaScript
+  - Docker
+projects:
+  - name: Project 1
+    description: your description here
+    skills_used:
+      - Java
+      - JavaScript
+      - Docker
+
