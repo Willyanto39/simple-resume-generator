@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Contact.Name }}</title>
+</head>
+<body>
+    <div class="container">
+        <div class="contact">
+            <h1 class="name">{{ .Contact.Name }}</h1>
+            <span>{{ .Contact.Information }}</span>
+        </div>
+        <div class="experiences">
+            {{ if .Experiences }}
+                <h2 class="heading">Work Experience</h2>
+                {{ range .Experiences }}
+                    <div class="experience">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="company">{{ .Company }}</h3>
+                                <span>{{ .Role }}</span>
+                            </div>
+                            <div>
+                                <span class="date">{{ .Start.Month }} {{ .Start.Year }} - {{ .End.Month }} {{ .End.Year }}</span>
+                                <span class="location">{{ .Location }}</span>
+                            </div>
+                        </div>
+                        <div>
+                            <ul>
+                                {{ range .Details }}
+                                    <li>{{ . }}</li>
+                                {{ end }}
+                            </ul>
+                        </div>
+                    </div>
+                {{ end }}
+            {{ end }}
+        </div>
+        <div class="educations">
+            {{ if .Educations }}
+                <h2 class="heading">Educations</h2>
+                {{ range .Educations }}
+                    <div class="education">
+                        <div class="education-header">
+                            <div>
+                                <h3 class="education-name">{{ .Name }}</h3>
+                            </div>
+                            <div>
+                                <span class="date">{{ .Start.Month }} {{ .Start.Year }} - {{ .End.Month }} {{ .End.Year }}</span>
+                                <span class="location">{{ .Location }}</span>
+                            </div>
+                        </div>
+                        <div>
+                            <ul>
+                                {{ range .Details }}
+                                    <li>{{ . }}</li>
+                                {{ end }}
+                            </ul>
+                        </div>
+                    </div>
+                {{ end }}
+            {{ end }}
+        </div>
+        <div class="skills">
+            {{ if .Skills }}
+                <h2 class="heading">Skills</h2>
+                {{ .SkillsString }}
+            {{ end }}
+        </div>
+        <div class="projects">
+            {{ if .Projects }}
+                <h2 class="heading">Projects</h2>
+                {{ range .Projects }}
+                    <div class="project">
+                        <div class="project-header">
+                            <h3 class="project-name">{{ .Name }}</h3>
+                            <span>{{ .Link }}</span>
+                        </div>
+                        <div>
+                            <ul>
+                                {{ range .Details }}
+                                    <li>{{ . }}</li>
+                                {{ end }}
+                                <li><b>Utilized:</b> {{ .SkillsUsedString }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                {{ end }}
+            {{ end }}
+        </div>
+    </div>
+</body>
+<style>
+    body {
+        font-size: 12px;
+    }
+
+    .container {
+        padding: 2rem;
+    }
+
+    .heading {
+        text-transform: uppercase;
+        margin: 0;
+        border-bottom: 1px solid black;
+        font-size: 14px;
+    }
+
+    .experiences, .skills, .projects  {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .contact {
+        text-align: center;
+    }
+
+    .name {
+        text-transform: uppercase;
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .experience {
+        margin-bottom: 1rem;
+    }
+
+    .experience-header, .education-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .company, .education-name, .project-name {
+        margin: 0;
+    }
+
+    .date {
+        font-weight: 600;
+    }
+
+    .date, .location {
+        display: block;
+        text-align: right;
+    }
+</style>
+</html>
