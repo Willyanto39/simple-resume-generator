@@ -11,5 +11,5 @@ func main() {
 	fmt.Println("go")
 	resume := parser.Parse()
 	converter.ConvertToHtml(resume)
-	//converter.ConvertToPdf(resume)
+	converter.ConvertToPdf()
 }
