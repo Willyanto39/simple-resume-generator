@@ -1,10 +1,26 @@
 package resume
 
-import "strings"
+import (
+	"strings"
+)
 
 type Date struct {
 	Month string
 	Year  string
+}
+
+func (date Date) String() string {
+	dateFields := []string{}
+
+	if date.Month != "" {
+		dateFields = append(dateFields, date.Month)
+	}
+
+	if date.Year != "" {
+		dateFields = append(dateFields, date.Year)
+	}
+
+	return strings.Join(dateFields, " ")
 }
 
 type Contact struct {
@@ -33,12 +49,21 @@ func (contact Contact) Information() string {
 }
 
 type Experience struct {
-	Company  string
-	Role     string
-	Location string
-	Start    Date
-	End      Date
-	Details  []string
+	Company       string
+	Role          string
+	Location      string
+	Until_Present bool
+	Start         Date
+	End           Date
+	Details       []string
+}
+
+func (experience Experience) DateString() string {
+	if experience.Until_Present {
+		return experience.Start.String() + " - Present"
+	}
+
+	return experience.Start.String() + " - " + experience.End.String()
 }
 
 type Education struct {

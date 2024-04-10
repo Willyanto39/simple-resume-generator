@@ -7,17 +7,16 @@ experiences:
   - company: Company 1
     role: Role 1
     location: Somewhere
+    until_present: true
     start:
       month: January
-      year: 2023
-    end:
-      month: March
       year: 2024
     details:
       - detail 1
       - detail 2
   - company: Company 2
     role: Role 2
+    location: Somewhere
     start:
       month: May
       year: 2023
